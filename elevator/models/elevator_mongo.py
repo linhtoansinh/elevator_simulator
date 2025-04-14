@@ -4,12 +4,12 @@ from pydantic import BaseModel, ConfigDict
 class Elevator(BaseModel):
     elevator_id: int
     current_floor: int = 1
-    direction: Direction | None = None
+    direction: str | None = None
     is_open: bool = False
     target_floors: list[int] = []
     is_moving: bool = False
 
-    model_config = ConfigDict(validate_default=True, extra="ignore")
+    model_config = ConfigDict(validate_default=True)
 
     def add_floors(self, floors:list[int]=[]):
         for floor in floors:
