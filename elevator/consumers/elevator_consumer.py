@@ -1,12 +1,13 @@
 import asyncio
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
+from elevator.services.elevator_service_mongo import ElevatorServiceMongo
 from ..services.elevator_service import ElevatorService
 from ..constants import NUM_ELEVATORS, NUM_FLOORS
 
 class ElevatorConsumer(AsyncJsonWebsocketConsumer):
     def __init__(self, *args, **kwargs):
         super().__init__(args, kwargs)
-        self.elevator_service = ElevatorService()
+        self.elevator_service = ElevatorServiceMongo()
 
     async def connect(self):
         self.room_group_name = "elevators"
