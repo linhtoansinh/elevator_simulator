@@ -15,7 +15,20 @@ This project implements an elevator simulator web app using Python/Django as the
 
 ---
 
-## Steps
+## Use docker to run app
+1. **Build containers**:
+
+```bash
+docker compose build
+```
+
+1. **Run**:
+
+```bash
+docker compose up
+```
+
+## Or run locally
 
 1. **Install dependencies**:
 
@@ -29,7 +42,13 @@ pip install -r requirements.txt
 service redis-server start
 ```
 
-2. **Start server**:
+3. **Populate elevators**:
+
+```bash
+python manage.py populate_elevators
+```
+
+3. **Start server**:
 
 ```bash
 python manage.py runserver
