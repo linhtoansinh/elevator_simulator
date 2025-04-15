@@ -37,6 +37,7 @@ services:
       MONGO_URL: mongodb://elevator-mongo:27017
       REDIS_HOST: elevator-redis
     depends_on:
+      - elevator-mongo
       - elevator-redis
 
 # The commented out section below is an example of how to define a PostgreSQL
